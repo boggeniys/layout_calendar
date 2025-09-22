@@ -11,7 +11,7 @@ body {
   flex-wrap: wrap;
   gap: $gap;
   padding: $padding;
-  width: calc(($cell-size + $cell-border) * 7 + $padding * 2);
+  width: calc($cell-size * 7 + $gap * 6 + $padding * 2);
 
   margin: auto;
   position: absolute;
