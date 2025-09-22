@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 body {
   margin: 0;
 }
@@ -18,6 +20,7 @@ body {
   transform: translate(-50%, -50%);
 
   &__day {
+    box-sizing: border-box;
     width: $cell-size;
     height: $cell-size;
     border: $cell-border solid black;
@@ -62,11 +65,13 @@ body {
   }
 
   // Модификатор стартового дня недели
+
   $days: sun, mon, tue, wed, thu, fri, sat;
 
-  @each $day, $index in $days {
+  @each $day in $days {
+    $i: list.index($days, $day) - 1; // индекс текущего дня, начиная с 0
     &--start-day-#{$day} &__day:first-child {
-      margin-left: calc(($cell-size + $gap + $cell-border) * #{$index});
+      margin-left: calc(($cell-size + $gap) * #{$i});
     }
   }
 }
